@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us - Dooars Prajukti{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/core/contact.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="page-title">Get In Touch</h1>
+                <p class="page-subtitle">We'd Love to Hear From You</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section section-padding">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Contact Form -->
+            <div class="col-lg-8">
+                <div class="contact-form-wrapper">
+                    <div class="form-header">
+                        <h2 class="form-title">Send Us a Message</h2>
+                        <p class="form-subtitle">Fill out the form below and we'll get back to you as soon as possible</p>
+                    </div>
+                    
+                    <form method="post" class="contact-form">
+                        {% csrf_token %}
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name" class="form-label">
+                                        <i class="bi bi-person"></i> Full Name
+                                    </label>
+                                    <input type="text" class="form-control" id="name" name="name" placeholder="John Doe" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email" class="form-label">
+                                        <i class="bi bi-envelope"></i> Email Address
+                                    </label>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="john@example.com" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone" class="form-label">
+                                        <i class="bi bi-telephone"></i> Phone Number
+                                    </label>
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="+91 98765 43210">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="subject" class="form-label">
+                                        <i class="bi bi-tag"></i> Subject
+                                    </label>
+                                    <select class="form-select" id="subject" name="subject" required>
+                                        <option value="">Select a subject</option>
+                                        <option value="web-development">Web Development</option>
+                                        <option value="software-solutions">Software Solutions</option>
+                                        <option value="app-development">App Development</option>
+                                        <option value="it-consulting">IT Consulting</option>
+                                        <option value="general-inquiry">General Inquiry</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="message" class="form-label">
+                                        <i class="bi bi-chat-left-text"></i> Your Message
+                                    </label>
+                                    <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tell us about your project..." required></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agree" required>
+                                    <label class="form-check-label" for="agree">
+                                        I agree to the <a href="#">Privacy Policy</a> and <a href="#">Terms of Service</a>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-submit">
+                                    <i class="bi bi-send me-2"></i> Send Message
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Contact Info Sidebar -->
+            <div class="col-lg-4">
+                <!-- Contact Info Card -->
+                <div class="contact-info-card">
+                    <div class="info-header">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <h4>Contact Information</h4>
+                    </div>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-geo-alt"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Office Address</h5>
+                                <p>Dooars, West Bengal<br>India - 735101</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-envelope"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Email Us</h5>
+                                <p>info@dooarsprajukti.com<br>support@dooarsprajukti.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-telephone"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Call Us</h5>
+                                <p>+91 98765 43210<br>+91 98765 43211</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="bi bi-clock"></i>
+                            </div>
+                            <div class="info-content">
+                                <h5>Working Hours</h5>
+                                <p>Mon - Fri: 9:00 AM - 6:00 PM<br>Sat: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Card -->
+                <div class="social-card">
+                    <h4 class="social-title">Follow Us</h4>
+                    <p class="social-text">Stay connected with us on social media</p>
+                    <div class="social-links-grid">
+                        <a href="#" class="social-link facebook" aria-label="Facebook">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link twitter" aria-label="Twitter">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                        <a href="#" class="social-link instagram" aria-label="Instagram">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link github" aria-label="GitHub">
+                            <i class="bi bi-github"></i>
+                        </a>
+                        <a href="#" class="social-link whatsapp" aria-label="WhatsApp">
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+    <div class="container-fluid p-0">
+        <div class="map-wrapper">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3568.123456789!2d88.123456!3d26.654321!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDM5JzE1LjYiTiA4OMKwMDcnMjQuNCJF!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
+                width="100%" 
+                height="450" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Office Location Map">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Contact Section -->
+<section class="quick-contact section-padding bg-light">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="quick-contact-card">
+                    <div class="quick-icon">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Our support team is available round the clock to assist you</p>
+                    <a href="#" class="quick-link">Get Support <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="quick-contact-card">
+                    <div class="quick-icon">
+                        <i class="bi bi-calendar-check"></i>
+                    </div>
+                    <h4>Schedule Meeting</h4>
+                    <p>Book a consultation with our experts at your convenience</p>
+                    <a href="#" class="quick-link">Book Now <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="quick-contact-card">
+                    <div class="quick-icon">
+                        <i class="bi bi-question-circle"></i>
+                    </div>
+                    <h4>FAQ</h4>
+                    <p>Find answers to commonly asked questions about our services</p>
+                    <a href="{% url 'faq' %}" class="quick-link">View FAQ <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

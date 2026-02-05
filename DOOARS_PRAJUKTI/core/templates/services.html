@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Services - Dooars Prajukti{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/core/services.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="page-title">Our Services</h1>
+                <p class="page-subtitle">Comprehensive IT Solutions for Your Business</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Services</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Grid Section -->
+<section class="services-grid section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <p class="services-intro">
+                From concept to deployment, we deliver end-to-end technology solutions that empower your business
+            </p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Service Card 1: Web Development -->
+            <div class="col-lg-6">
+                <div class="service-card-large">
+                    <div class="service-card-icon">
+                        <i class="bi bi-globe"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3 class="service-card-title">Web Development</h3>
+                        <p class="service-card-description">
+                            Create powerful, responsive websites and web applications that engage users 
+                            and drive results. We specialize in modern frameworks and best practices.
+                        </p>
+                        <ul class="service-features-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Custom Website Design</li>
+                            <li><i class="bi bi-check-circle-fill"></i> E-Commerce Solutions</li>
+                            <li><i class="bi bi-check-circle-fill"></i> CMS Development</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Progressive Web Apps</li>
+                        </ul>
+                        <div class="service-tech-stack">
+                            <span class="tech-badge">HTML5</span>
+                            <span class="tech-badge">CSS3</span>
+                            <span class="tech-badge">JavaScript</span>
+                            <span class="tech-badge">React</span>
+                            <span class="tech-badge">Django</span>
+                        </div>
+                        <a href="{% url 'services' %}" class="btn btn-service">
+                            Learn More <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 2: Software Solutions -->
+            <div class="col-lg-6">
+                <div class="service-card-large">
+                    <div class="service-card-icon">
+                        <i class="bi bi-cpu"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3 class="service-card-title">Software Solutions</h3>
+                        <p class="service-card-description">
+                            Enterprise-grade software tailored to your business needs. From CRM systems 
+                            to inventory management, we build solutions that streamline operations.
+                        </p>
+                        <ul class="service-features-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Custom Software Development</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Enterprise Applications</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Business Process Automation</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Legacy System Modernization</li>
+                        </ul>
+                        <div class="service-tech-stack">
+                            <span class="tech-badge">Python</span>
+                            <span class="tech-badge">Java</span>
+                            <span class="tech-badge">.NET</span>
+                            <span class="tech-badge">Node.js</span>
+                            <span class="tech-badge">SQL</span>
+                        </div>
+                        <a href="{% url 'services' %}" class="btn btn-service">
+                            Learn More <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 3: App Development -->
+            <div class="col-lg-6">
+                <div class="service-card-large">
+                    <div class="service-card-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3 class="service-card-title">App Development</h3>
+                        <p class="service-card-description">
+                            Build engaging mobile experiences for iOS and Android. We create native 
+                            and cross-platform applications that users love.
+                        </p>
+                        <ul class="service-features-list">
+                            <li><i class="bi bi-check-circle-fill"></i> iOS App Development</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Android App Development</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Cross-Platform Apps</li>
+                            <li><i class="bi bi-check-circle-fill"></i> App Maintenance & Support</li>
+                        </ul>
+                        <div class="service-tech-stack">
+                            <span class="tech-badge">Swift</span>
+                            <span class="tech-badge">Kotlin</span>
+                            <span class="tech-badge">Flutter</span>
+                            <span class="tech-badge">React Native</span>
+                            <span class="tech-badge">Firebase</span>
+                        </div>
+                        <a href="{% url 'services' %}" class="btn btn-service">
+                            Learn More <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Service Card 4: IT Consulting -->
+            <div class="col-lg-6">
+                <div class="service-card-large">
+                    <div class="service-card-icon">
+                        <i class="bi bi-lightbulb"></i>
+                    </div>
+                    <div class="service-card-content">
+                        <h3 class="service-card-title">IT Consulting</h3>
+                        <p class="service-card-description">
+                            Strategic technology guidance to help you make informed decisions. We assess 
+                            your needs and recommend the best solutions for your goals.
+                        </p>
+                        <ul class="service-features-list">
+                            <li><i class="bi bi-check-circle-fill"></i> Technology Assessment</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Digital Transformation</li>
+                            <li><i class="bi bi-check-circle-fill"></i> IT Strategy Planning</li>
+                            <li><i class="bi bi-check-circle-fill"></i> Security Consulting</li>
+                        </ul>
+                        <div class="service-tech-stack">
+                            <span class="tech-badge">Cloud</span>
+                            <span class="tech-badge">DevOps</span>
+                            <span class="tech-badge">Security</span>
+                            <span class="tech-badge">Architecture</span>
+                            <span class="tech-badge">Strategy</span>
+                        </div>
+                        <a href="{% url 'services' %}" class="btn btn-service">
+                            Learn More <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="our-process section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Our Development Process</h2>
+            <p class="section-subtitle mx-auto">
+                A proven methodology to deliver exceptional results
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step">
+                    <div class="process-number">01</div>
+                    <div class="process-icon">
+                        <i class="bi bi-lightbulb-fill"></i>
+                    </div>
+                    <h5 class="process-title">Discovery</h5>
+                    <p class="process-description">
+                        Understanding your requirements, goals, and challenges
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step">
+                    <div class="process-number">02</div>
+                    <div class="process-icon">
+                        <i class="bi bi-brush-fill"></i>
+                    </div>
+                    <h5 class="process-title">Design</h5>
+                    <p class="process-description">
+                        Creating wireframes, prototypes, and visual designs
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step">
+                    <div class="process-number">03</div>
+                    <div class="process-icon">
+                        <i class="bi bi-code-slash"></i>
+                    </div>
+                    <h5 class="process-title">Development</h5>
+                    <p class="process-description">
+                        Building your solution with clean, efficient code
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="process-step">
+                    <div class="process-number">04</div>
+                    <div class="process-icon">
+                        <i class="bi bi-rocket-takeoff-fill"></i>
+                    </div>
+                    <h5 class="process-title">Launch</h5>
+                    <p class="process-description">
+                        Testing, deployment, and ongoing support
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="services-cta section-padding">
+    <div class="container">
+        <div class="cta-wrapper text-center">
+            <h2 class="cta-title">Need a Custom Solution?</h2>
+            <p class="cta-description">
+                Let's discuss your project and find the perfect solution for your business needs
+            </p>
+            <a href="{% url 'contact' %}" class="btn btn-cta">
+                Start Your Project <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endblock %}

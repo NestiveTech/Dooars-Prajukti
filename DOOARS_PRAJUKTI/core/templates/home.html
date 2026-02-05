@@ -1,0 +1,313 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home - Dooars Prajukti{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/core/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <h1 class="hero-title">Building Digital Solutions for Tomorrow</h1>
+                    <p class="hero-description">
+                        Empowering businesses with innovative technology solutions. 
+                        We transform ideas into powerful digital experiences.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="{% url 'services' %}" class="btn btn-hero-primary">
+                            Explore Services <i class="bi bi-arrow-right ms-2"></i>
+                        </a>
+                        <a href="{% url 'contact' %}" class="btn btn-hero-secondary">
+                            Get in Touch <i class="bi bi-chat-dots ms-2"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Dynamic Stats from Database -->
+                    {% if stats %}
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <h3>{{ stats.total_projects }}+</h3>
+                            <p>Projects Completed</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>{{ stats.total_clients }}+</h3>
+                            <p>Happy Clients</p>
+                        </div>
+                        <div class="stat-item">
+                            <h3>{{ stats.years_experience }}+</h3>
+                            <p>Years Experience</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="hero-image">
+                    <!-- Dynamic floating cards from services -->
+                    {% if services %}
+                        {% for service in services|slice:":3" %}
+                        <div class="floating-card card-{{ forloop.counter }}">
+                            <i class="bi {{ service.icon|default:'bi-code-slash' }}"></i>
+                            <span>{{ service.title }}</span>
+                        </div>
+                        {% endfor %}
+                    {% else %}
+                        <!-- Fallback if no services -->
+                        <div class="floating-card card-1">
+                            <i class="bi bi-code-slash"></i>
+                            <span>Web Development</span>
+                        </div>
+                        <div class="floating-card card-2">
+                            <i class="bi bi-phone"></i>
+                            <span>Mobile Apps</span>
+                        </div>
+                        <div class="floating-card card-3">
+                            <i class="bi bi-cloud"></i>
+                            <span>Cloud Solutions</span>
+                        </div>
+                    {% endif %}
+                    <div class="hero-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Services Highlight Section - FROM DATABASE -->
+{% if services %}
+<section class="services-highlight section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Our Core Services</h2>
+            <p class="section-subtitle mx-auto">
+                Comprehensive IT solutions tailored to meet your business needs
+            </p>
+        </div>
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-3 col-md-6">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="bi {{ service.icon|default:'bi-code-slash' }}"></i>
+                    </div>
+                    <h4 class="service-title">{{ service.title }}</h4>
+                    <p class="service-description">
+                        {{ service.short_description|truncatewords:15 }}
+                    </p>
+                    <a href="{% url 'service_details' service.slug %}" class="service-link">
+                        Learn More <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        
+        <!-- View All Services Button -->
+        <div class="text-center mt-4">
+            <a href="{% url 'services' %}" class="btn btn-outline-primary">
+                View All Services <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Projects Preview Section - FROM DATABASE -->
+{% if projects %}
+<section class="projects-preview section-padding bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle mx-auto">
+                Showcasing our latest work and successful collaborations
+            </p>
+        </div>
+        <div class="row g-4">
+            {% for project in projects %}
+            <div class="col-lg-4 col-md-6">
+                <div class="project-card">
+                    <div class="project-image">
+                        {% if project.image %}
+                            <img src="{{ project.image.url }}" alt="{{ project.title }}" loading="lazy">
+                        {% else %}
+                            <div class="project-placeholder">
+                                <i class="bi bi-folder"></i>
+                            </div>
+                        {% endif %}
+                        <div class="project-overlay">
+                            <a href="{% url 'project_details' project.slug %}" class="btn btn-view-project">
+                                View Project <i class="bi bi-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        {% if project.category %}
+                        <div class="project-category">{{ project.category.name }}</div>
+                        {% endif %}
+                        <h4 class="project-name">{{ project.title }}</h4>
+                        <p class="project-desc">{{ project.short_description|truncatewords:12 }}</p>
+                        {% if project.get_technologies_list %}
+                        <div class="project-tech">
+                            {% for tech in project.get_technologies_list|slice:":3" %}
+                                <span class="tech-badge">{{ tech }}</span>
+                            {% endfor %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="text-center mt-5">
+            <a href="{% url 'projects' %}" class="btn btn-primary-custom">
+                View All Projects <i class="bi bi-arrow-right ms-2"></i>
+            </a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Testimonials Section - FROM DATABASE -->
+{% if testimonials %}
+<section class="testimonials-section section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">What Our Clients Say</h2>
+            <p class="section-subtitle mx-auto">
+                Real feedback from our valued clients
+            </p>
+        </div>
+        <div class="row g-4">
+            {% for testimonial in testimonials %}
+            <div class="col-lg-4 col-md-6">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">
+                        {% for i in "12345" %}
+                            {% if forloop.counter <= testimonial.rating %}
+                                <i class="bi bi-star-fill text-warning"></i>
+                            {% else %}
+                                <i class="bi bi-star text-warning"></i>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    <p class="testimonial-text">"{{ testimonial.content|truncatewords:30 }}"</p>
+                    <div class="testimonial-author">
+                        {% if testimonial.photo %}
+                        <img src="{{ testimonial.photo.url }}" alt="{{ testimonial.client_name }}" class="author-image">
+                        {% else %}
+                        <div class="author-placeholder">
+                            <i class="bi bi-person-circle"></i>
+                        </div>
+                        {% endif %}
+                        <div class="author-info">
+                            <h5>{{ testimonial.client_name }}</h5>
+                            <p>
+                                {% if testimonial.position %}{{ testimonial.position }}{% endif %}
+                                {% if testimonial.position and testimonial.company %}, {% endif %}
+                                {% if testimonial.company %}{{ testimonial.company }}{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<!-- Call to Action Section -->
+<section class="cta-section section-padding">
+    <div class="container">
+        <div class="cta-wrapper">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h2 class="cta-title">Ready to Start Your Next Project?</h2>
+                    <p class="cta-description">
+                        Let's collaborate and bring your vision to life with our expertise in cutting-edge technology
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end text-center">
+                    <a href="{% url 'contact' %}" class="btn btn-cta">
+                        Get Started Today <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Us Section -->
+<section class="why-choose section-padding">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Why Choose Dooars Prajukti</h2>
+            <p class="section-subtitle mx-auto">
+                We deliver excellence through innovation, dedication, and expertise
+            </p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-award"></i>
+                    </div>
+                    <h4>Expert Team</h4>
+                    <p>Skilled professionals with years of industry experience</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-lightning"></i>
+                    </div>
+                    <h4>Fast Delivery</h4>
+                    <p>Timely project completion without compromising quality</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-shield-check"></i>
+                    </div>
+                    <h4>Quality Assurance</h4>
+                    <p>Rigorous testing to ensure flawless performance</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-headset"></i>
+                    </div>
+                    <h4>24/7 Support</h4>
+                    <p>Round-the-clock assistance for all your needs</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-graph-up"></i>
+                    </div>
+                    <h4>Scalable Solutions</h4>
+                    <p>Technology that grows with your business</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-box">
+                    <div class="feature-icon-wrapper">
+                        <i class="bi bi-wallet2"></i>
+                    </div>
+                    <h4>Cost-Effective</h4>
+                    <p>Premium solutions at competitive prices</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

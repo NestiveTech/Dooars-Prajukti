@@ -1,0 +1,481 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}FAQ - Dooars Prajukti{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/core/faq.css' %}">
+{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="page-title">Frequently Asked Questions</h1>
+                <p class="page-subtitle">Find Answers to Common Questions</p>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a href="{% url 'home' %}">Home</a></li>
+                        <li class="breadcrumb-item active">FAQ</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Categories -->
+<section class="faq-categories section-padding-sm">
+    <div class="container">
+        <div class="category-buttons">
+            <button class="category-btn active" data-category="general">General</button>
+            <button class="category-btn" data-category="services">Services</button>
+            <button class="category-btn" data-category="pricing">Pricing</button>
+            <button class="category-btn" data-category="technical">Technical</button>
+            <button class="category-btn" data-category="support">Support</button>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq-section section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Main FAQ Content -->
+            <div class="col-lg-8">
+                <!-- General Questions -->
+                <div class="faq-category-block" data-category="general">
+                    <div class="category-header">
+                        <i class="bi bi-question-circle"></i>
+                        <h2>General Questions</h2>
+                    </div>
+                    
+                    <div class="accordion" id="generalAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#general1">
+                                    What is Dooars Prajukti?
+                                </button>
+                            </h2>
+                            <div id="general1" class="accordion-collapse collapse show" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    Dooars Prajukti is a leading IT solutions provider specializing in web development, software solutions, mobile app development, and IT consulting. We help businesses transform their digital presence and streamline operations through innovative technology solutions.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general2">
+                                    Where is Dooars Prajukti located?
+                                </button>
+                            </h2>
+                            <div id="general2" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    We are based in Dooars, West Bengal, India. However, we serve clients globally and work with businesses from various locations through remote collaboration and online communication tools.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general3">
+                                    What industries do you serve?
+                                </button>
+                            </h2>
+                            <div id="general3" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    We work with businesses across various industries including e-commerce, healthcare, education, finance, real estate, hospitality, and more. Our solutions are customized to meet the specific needs of each industry.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#general4">
+                                    Do you work with startups or only established businesses?
+                                </button>
+                            </h2>
+                            <div id="general4" class="accordion-collapse collapse" data-bs-parent="#generalAccordion">
+                                <div class="accordion-body">
+                                    We work with businesses of all sizes - from startups and small businesses to large enterprises. We understand the unique challenges each stage of business growth presents and tailor our solutions accordingly.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Services Questions -->
+                <div class="faq-category-block" data-category="services" style="display: none;">
+                    <div class="category-header">
+                        <i class="bi bi-gear"></i>
+                        <h2>Services</h2>
+                    </div>
+                    
+                    <div class="accordion" id="servicesAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#service1">
+                                    What services does Dooars Prajukti offer?
+                                </button>
+                            </h2>
+                            <div id="service1" class="accordion-collapse collapse show" data-bs-parent="#servicesAccordion">
+                                <div class="accordion-body">
+                                    We offer comprehensive IT solutions including Web Development (custom websites, e-commerce, CMS), Software Solutions (enterprise applications, custom software), Mobile App Development (iOS, Android, cross-platform), and IT Consulting (technology assessment, digital transformation, strategy planning).
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service2">
+                                    Can you build custom solutions specific to my business needs?
+                                </button>
+                            </h2>
+                            <div id="service2" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! We specialize in creating custom solutions tailored to your unique business requirements. We take time to understand your goals, challenges, and workflows to develop solutions that perfectly fit your needs.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service3">
+                                    Do you provide ongoing maintenance and support?
+                                </button>
+                            </h2>
+                            <div id="service3" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer comprehensive maintenance and support services. This includes bug fixes, security updates, feature enhancements, performance optimization, and 24/7 technical support to ensure your solution runs smoothly.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#service4">
+                                    What technologies do you work with?
+                                </button>
+                            </h2>
+                            <div id="service4" class="accordion-collapse collapse" data-bs-parent="#servicesAccordion">
+                                <div class="accordion-body">
+                                    We work with modern technologies including Python/Django, React, Node.js, Flutter, React Native, PostgreSQL, MySQL, MongoDB, AWS, and more. We choose the best technology stack based on your project requirements.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pricing Questions -->
+                <div class="faq-category-block" data-category="pricing" style="display: none;">
+                    <div class="category-header">
+                        <i class="bi bi-currency-dollar"></i>
+                        <h2>Pricing & Payment</h2>
+                    </div>
+                    
+                    <div class="accordion" id="pricingAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#pricing1">
+                                    How much does a project cost?
+                                </button>
+                            </h2>
+                            <div id="pricing1" class="accordion-collapse collapse show" data-bs-parent="#pricingAccordion">
+                                <div class="accordion-body">
+                                    Project costs vary based on complexity, features, timeline, and technology requirements. We provide customized quotes after understanding your specific needs. Contact us for a free consultation and detailed estimate.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pricing2">
+                                    What payment methods do you accept?
+                                </button>
+                            </h2>
+                            <div id="pricing2" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+                                <div class="accordion-body">
+                                    We accept bank transfers, UPI, online payment gateways, and international wire transfers. Payment terms are typically structured as milestone-based payments throughout the project lifecycle.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pricing3">
+                                    Do you offer payment plans?
+                                </button>
+                            </h2>
+                            <div id="pricing3" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+                                <div class="accordion-body">
+                                    Yes, we offer flexible payment plans based on project milestones. Typically, we require an initial deposit, followed by payments at key project stages, with final payment upon completion and delivery.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#pricing4">
+                                    Are there any hidden costs?
+                                </button>
+                            </h2>
+                            <div id="pricing4" class="accordion-collapse collapse" data-bs-parent="#pricingAccordion">
+                                <div class="accordion-body">
+                                    No, we believe in transparent pricing. All costs are outlined in the project proposal. Any additional requirements or scope changes are discussed and approved before implementation.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Questions -->
+                <div class="faq-category-block" data-category="technical" style="display: none;">
+                    <div class="category-header">
+                        <i class="bi bi-code-slash"></i>
+                        <h2>Technical Questions</h2>
+                    </div>
+                    
+                    <div class="accordion" id="technicalAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tech1">
+                                    How long does it take to complete a project?
+                                </button>
+                            </h2>
+                            <div id="tech1" class="accordion-collapse collapse show" data-bs-parent="#technicalAccordion">
+                                <div class="accordion-body">
+                                    Timeline varies based on project scope and complexity. A simple website might take 2-4 weeks, while complex applications can take 3-6 months or longer. We provide detailed timeline estimates during project planning.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tech2">
+                                    Will my website/app be mobile-friendly?
+                                </button>
+                            </h2>
+                            <div id="tech2" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                                <div class="accordion-body">
+                                    Absolutely! All our web solutions are fully responsive and optimized for mobile devices, tablets, and desktops. We follow mobile-first design principles to ensure excellent user experience across all devices.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tech3">
+                                    Do you provide hosting services?
+                                </button>
+                            </h2>
+                            <div id="tech3" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                                <div class="accordion-body">
+                                    Yes, we can help with hosting setup and management. We work with reliable cloud providers like AWS, Google Cloud, and others to ensure your solution is fast, secure, and scalable.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tech4">
+                                    Is my data secure with you?
+                                </button>
+                            </h2>
+                            <div id="tech4" class="accordion-collapse collapse" data-bs-parent="#technicalAccordion">
+                                <div class="accordion-body">
+                                    Security is our top priority. We implement industry-standard security practices including encryption, secure authentication, regular security audits, and compliance with data protection regulations.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Support Questions -->
+                <div class="faq-category-block" data-category="support" style="display: none;">
+                    <div class="category-header">
+                        <i class="bi bi-headset"></i>
+                        <h2>Support & Communication</h2>
+                    </div>
+                    
+                    <div class="accordion" id="supportAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#support1">
+                                    How can I contact your support team?
+                                </button>
+                            </h2>
+                            <div id="support1" class="accordion-collapse collapse show" data-bs-parent="#supportAccordion">
+                                <div class="accordion-body">
+                                    You can reach us via email at support@dooarsprajukti.com, call us at +91 98765 43210, or use the contact form on our website. We also offer live chat support during business hours.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#support2">
+                                    What are your support hours?
+                                </button>
+                            </h2>
+                            <div id="support2" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                                <div class="accordion-body">
+                                    Our support team is available 24/7 for critical issues. For general inquiries, our business hours are Monday to Friday, 9:00 AM to 6:00 PM IST, and Saturday, 9:00 AM to 1:00 PM IST.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#support3">
+                                    How do you communicate during project development?
+                                </button>
+                            </h2>
+                            <div id="support3" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                                <div class="accordion-body">
+                                    We maintain regular communication through email, video calls, project management tools, and status updates. You'll have a dedicated project manager as your main point of contact throughout the project.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#support4">
+                                    What happens after project delivery?
+                                </button>
+                            </h2>
+                            <div id="support4" class="accordion-collapse collapse" data-bs-parent="#supportAccordion">
+                                <div class="accordion-body">
+                                    After delivery, we provide a warranty period for bug fixes and offer ongoing maintenance packages. We also provide training for your team and comprehensive documentation for your solution.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Contact Card -->
+                <div class="sidebar-card contact-card">
+                    <div class="card-icon">
+                        <i class="bi bi-chat-dots"></i>
+                    </div>
+                    <h4>Still Have Questions?</h4>
+                    <p>Can't find the answer you're looking for? Our team is here to help.</p>
+                    <a href="{% url 'contact' %}" class="btn btn-contact">
+                        Contact Us <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                </div>
+
+                <!-- Popular Topics -->
+                <div class="sidebar-card topics-card">
+                    <h4 class="card-title">Popular Topics</h4>
+                    <ul class="topics-list">
+                        <li>
+                            <a href="#general1">
+                                <i class="bi bi-arrow-right"></i>
+                                What is Dooars Prajukti?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#service1">
+                                <i class="bi bi-arrow-right"></i>
+                                What services do you offer?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#pricing1">
+                                <i class="bi bi-arrow-right"></i>
+                                How much does a project cost?
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#tech1">
+                                <i class="bi bi-arrow-right"></i>
+                                Project completion timeline
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#support1">
+                                <i class="bi bi-arrow-right"></i>
+                                How to contact support?
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Resources Card -->
+                <div class="sidebar-card resources-card">
+                    <h4 class="card-title">Helpful Resources</h4>
+                    <div class="resource-links">
+                        <a href="{% url 'services' %}" class="resource-link">
+                            <i class="bi bi-book"></i>
+                            <span>Service Guide</span>
+                        </a>
+                        <a href="{% url 'projects' %}" class="resource-link">
+                            <i class="bi bi-briefcase"></i>
+                            <span>Portfolio</span>
+                        </a>
+                        <a href="{% url 'about' %}" class="resource-link">
+                            <i class="bi bi-info-circle"></i>
+                            <span>About Us</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="faq-cta section-padding">
+    <div class="container">
+        <div class="cta-content text-center">
+            <h2 class="cta-title">Ready to Get Started?</h2>
+            <p class="cta-description">
+                Let's turn your ideas into reality with our expert team
+            </p>
+            <div class="cta-buttons">
+                <a href="{% url 'contact' %}" class="btn btn-cta-primary">
+                    Start Your Project <i class="bi bi-arrow-right ms-2"></i>
+                </a>
+                <a href="{% url 'services' %}" class="btn btn-cta-secondary">
+                    View Services <i class="bi bi-grid ms-2"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Category filter functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const categoryBtns = document.querySelectorAll('.category-btn');
+    const categoryBlocks = document.querySelectorAll('.faq-category-block');
+    
+    categoryBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            
+            // Update active button
+            categoryBtns.forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show/hide category blocks
+            categoryBlocks.forEach(block => {
+                if (block.getAttribute('data-category') === category) {
+                    block.style.display = 'block';
+                } else {
+                    block.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>
+{% endblock %}
