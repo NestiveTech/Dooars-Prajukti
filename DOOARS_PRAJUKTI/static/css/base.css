@@ -693,3 +693,53 @@ img {
         height: 32px;                  /* Adjust logo size on mobile */
     }
 }
+
+
+/* Auth Button Styles for Navbar */
+.navbar .btn-sm {
+    padding: 0.4rem 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.navbar .btn-outline-light {
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: #fff;
+    color: #fff;
+}
+
+.navbar .btn-accent {
+    background-color: #00d4ff;
+    color: #fff;
+    border: 1px solid #00d4ff;
+}
+
+.navbar .btn-accent:hover {
+    background-color: transparent;
+    color: #00d4ff;
+    border-color: #00d4ff;
+}
+
+/* Responsive spacing for auth buttons */
+@media (max-width: 991px) {
+    .navbar .nav-item.ms-lg-2 {
+        margin-top: 0.5rem;
+    }
+    
+    .navbar .btn-sm {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .navbar .nav-item.ms-lg-2 {
+        margin-left: 0.5rem !important;
+    }
+}

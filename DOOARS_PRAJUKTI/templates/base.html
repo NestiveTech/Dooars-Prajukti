@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -52,6 +51,21 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {% if request.resolver_match.url_name == 'faq' %}active{% endif %}" href="{% url 'faq' %}">FAQ</a>
+                    </li>
+                    {% comment %} <li class="nav-item">
+                        Get Started
+                    </li> {% endcomment %}
+                    
+                    <!-- Auth Buttons - After Get Started -->
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-outline-light btn-sm" href="{% url 'signin' %}">
+                            <i class="bi bi-box-arrow-in-right"></i> Sign In
+                        </a>
+                    </li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-accent btn-sm" href="{% url 'signup' %}">
+                            <i class="bi bi-person-plus"></i> Sign Up
+                        </a>
                     </li>
                 </ul>
             </div>

@@ -12,6 +12,7 @@ urlpatterns = [
     
     # Core app URLs
     path('', include('core.urls')),
+    path('accounts/', include('accounts.urls')),
 ]
 
 # Serve media files in development

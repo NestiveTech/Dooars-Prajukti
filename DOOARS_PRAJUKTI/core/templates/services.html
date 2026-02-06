@@ -26,144 +26,74 @@
     </div>
 </section>
 
-<!-- Services Grid Section -->
+<!-- Services Grid Section - FULLY DATABASE-DRIVEN -->
 <section class="services-grid section-padding">
     <div class="container">
         <div class="text-center mb-5">
             <p class="services-intro">
                 From concept to deployment, we deliver end-to-end technology solutions that empower your business
             </p>
+            {% if search_query %}
+            <div class="alert alert-info mt-3">
+                Showing results for: <strong>{{ search_query }}</strong>
+                <a href="{% url 'services' %}" class="btn btn-sm btn-outline-primary ms-3">Clear Search</a>
+            </div>
+            {% endif %}
         </div>
 
+        {% if services %}
         <div class="row g-4">
-            <!-- Service Card 1: Web Development -->
+            {% for service in services %}
             <div class="col-lg-6">
                 <div class="service-card-large">
                     <div class="service-card-icon">
-                        <i class="bi bi-globe"></i>
+                        <i class="bi {{ service.icon|default:'bi-code-slash' }}"></i>
                     </div>
                     <div class="service-card-content">
-                        <h3 class="service-card-title">Web Development</h3>
+                        <h3 class="service-card-title">{{ service.title }}</h3>
                         <p class="service-card-description">
-                            Create powerful, responsive websites and web applications that engage users 
-                            and drive results. We specialize in modern frameworks and best practices.
+                            {{ service.short_description }}
                         </p>
-                        <ul class="service-features-list">
-                            <li><i class="bi bi-check-circle-fill"></i> Custom Website Design</li>
-                            <li><i class="bi bi-check-circle-fill"></i> E-Commerce Solutions</li>
-                            <li><i class="bi bi-check-circle-fill"></i> CMS Development</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Progressive Web Apps</li>
+                        
+                        <!-- Features List (if features field exists) -->
+                        {% if service.get_features_list %}
+                        <ul class="service-features-list mt-3">
+                            {% for feature in service.get_features_list %}
+                            <li><i class="bi bi-check-circle-fill"></i> {{ feature }}</li>
+                            {% endfor %}
                         </ul>
-                        <div class="service-tech-stack">
-                            <span class="tech-badge">HTML5</span>
-                            <span class="tech-badge">CSS3</span>
-                            <span class="tech-badge">JavaScript</span>
-                            <span class="tech-badge">React</span>
-                            <span class="tech-badge">Django</span>
+                        {% endif %}
+                        
+                        <!-- Technologies (if technologies field exists) -->
+                        {% if service.get_technologies_list %}
+                        <div class="service-tech-stack mt-3">
+                            {% for tech in service.get_technologies_list %}
+                            <span class="tech-badge">{{ tech }}</span>
+                            {% endfor %}
                         </div>
-                        <a href="{% url 'services' %}" class="btn btn-service">
+                        {% endif %}
+                        
+                        <a href="#" class="btn btn-service mt-3">
                             Learn More <i class="bi bi-arrow-right ms-2"></i>
                         </a>
                     </div>
                 </div>
             </div>
-
-            <!-- Service Card 2: Software Solutions -->
-            <div class="col-lg-6">
-                <div class="service-card-large">
-                    <div class="service-card-icon">
-                        <i class="bi bi-cpu"></i>
-                    </div>
-                    <div class="service-card-content">
-                        <h3 class="service-card-title">Software Solutions</h3>
-                        <p class="service-card-description">
-                            Enterprise-grade software tailored to your business needs. From CRM systems 
-                            to inventory management, we build solutions that streamline operations.
-                        </p>
-                        <ul class="service-features-list">
-                            <li><i class="bi bi-check-circle-fill"></i> Custom Software Development</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Enterprise Applications</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Business Process Automation</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Legacy System Modernization</li>
-                        </ul>
-                        <div class="service-tech-stack">
-                            <span class="tech-badge">Python</span>
-                            <span class="tech-badge">Java</span>
-                            <span class="tech-badge">.NET</span>
-                            <span class="tech-badge">Node.js</span>
-                            <span class="tech-badge">SQL</span>
-                        </div>
-                        <a href="{% url 'services' %}" class="btn btn-service">
-                            Learn More <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card 3: App Development -->
-            <div class="col-lg-6">
-                <div class="service-card-large">
-                    <div class="service-card-icon">
-                        <i class="bi bi-phone"></i>
-                    </div>
-                    <div class="service-card-content">
-                        <h3 class="service-card-title">App Development</h3>
-                        <p class="service-card-description">
-                            Build engaging mobile experiences for iOS and Android. We create native 
-                            and cross-platform applications that users love.
-                        </p>
-                        <ul class="service-features-list">
-                            <li><i class="bi bi-check-circle-fill"></i> iOS App Development</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Android App Development</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Cross-Platform Apps</li>
-                            <li><i class="bi bi-check-circle-fill"></i> App Maintenance & Support</li>
-                        </ul>
-                        <div class="service-tech-stack">
-                            <span class="tech-badge">Swift</span>
-                            <span class="tech-badge">Kotlin</span>
-                            <span class="tech-badge">Flutter</span>
-                            <span class="tech-badge">React Native</span>
-                            <span class="tech-badge">Firebase</span>
-                        </div>
-                        <a href="{% url 'services' %}" class="btn btn-service">
-                            Learn More <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Service Card 4: IT Consulting -->
-            <div class="col-lg-6">
-                <div class="service-card-large">
-                    <div class="service-card-icon">
-                        <i class="bi bi-lightbulb"></i>
-                    </div>
-                    <div class="service-card-content">
-                        <h3 class="service-card-title">IT Consulting</h3>
-                        <p class="service-card-description">
-                            Strategic technology guidance to help you make informed decisions. We assess 
-                            your needs and recommend the best solutions for your goals.
-                        </p>
-                        <ul class="service-features-list">
-                            <li><i class="bi bi-check-circle-fill"></i> Technology Assessment</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Digital Transformation</li>
-                            <li><i class="bi bi-check-circle-fill"></i> IT Strategy Planning</li>
-                            <li><i class="bi bi-check-circle-fill"></i> Security Consulting</li>
-                        </ul>
-                        <div class="service-tech-stack">
-                            <span class="tech-badge">Cloud</span>
-                            <span class="tech-badge">DevOps</span>
-                            <span class="tech-badge">Security</span>
-                            <span class="tech-badge">Architecture</span>
-                            <span class="tech-badge">Strategy</span>
-                        </div>
-                        <a href="{% url 'services' %}" class="btn btn-service">
-                            Learn More <i class="bi bi-arrow-right ms-2"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
+        {% else %}
+        <!-- Fallback if no services in database -->
+        <div class="text-center py-5">
+            <i class="bi bi-inbox" style="font-size: 4rem; color: #ddd;"></i>
+            <p class="mt-3 text-muted">
+                {% if search_query %}
+                No services found matching your search. Try different keywords.
+                {% else %}
+                No services available at the moment. Please check back later.
+                {% endif %}
+            </p>
+        </div>
+        {% endif %}
     </div>
 </section>
 

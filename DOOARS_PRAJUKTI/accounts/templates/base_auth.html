@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>{% block title %}Authentication{% endblock %} - ERP System</title>
+    <link rel="stylesheet" href="{% static 'css/auth/auth.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <div class="auth-logo">
+                        {% comment %} <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="3" width="7" height="7"></rect>
+                            <rect x="14" y="14" width="7" height="7"></rect>
+                            <rect x="3" y="14" width="7" height="7"></rect>
+                        </svg> {% endcomment %}
+                        <img src="{% static 'img/logo.png' %}" alt="Dooars Prajukti Logo" class="logo-img me-2">
+                    </div>
+                    {% block header %}
+                    <h1>ERP System</h1>
+                    <p>Welcome back</p>
+                    {% endblock %}
+                </div>
+
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
